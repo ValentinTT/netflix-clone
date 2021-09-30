@@ -1,5 +1,6 @@
 const Colors = {
-  gray: "#141414",
+  gray: "#202020",
+  cardBg: "#242424",
 };
 
 export default Colors;
