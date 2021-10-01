@@ -1,8 +1,15 @@
+export const sizeInNumber = {
+  sm: 500,
+  md: 800,
+  lg: 1100,
+  xl: 1200,
+};
+
 export const size = {
-  sm: "500px",
-  md: "800px",
-  lg: "1100px",
-  xl: "1200px",
+  sm: `${sizeInNumber.sm}px`,
+  md: `${sizeInNumber.md}px`,
+  lg: `${sizeInNumber.lg}px`,
+  xl: `${sizeInNumber.xl}px`,
 };
 
 export const device = (Object.keys(size) as Array<keyof typeof size>).reduce(
