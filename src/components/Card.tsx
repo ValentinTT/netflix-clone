@@ -5,6 +5,7 @@ const StyledCard = styled.div`
   background: ${Colors.cardBg};
   border-radius: 0.3rem;
   cursor: pointer;
+  padding: 0 0.1rem;
 `;
 
 const StyledImage = styled.img`
