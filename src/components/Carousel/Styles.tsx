@@ -57,11 +57,8 @@ export const StyledRightPlaceholder = styled.span`
 export const StyledCarouselArrow = styled.span<{ left?: boolean }>`
   background: ${Colors.gray};
   height: 100%;
-  width: 6vw;
-  ${device.sm`width: 4vw;`} // Arrow width
-  /* ${device.md`width: 4vw;`}
-  ${device.lg`width: 4vw;`}
-  ${device.xl`width: 4vw;`} */
+  width: 6%;
+  ${device.sm`width: 4%;`}
 
   display: flex;
   align-items: center;
@@ -79,21 +76,31 @@ export const StyledCarouselArrow = styled.span<{ left?: boolean }>`
   }};
 
   & > * {
+    font-size: 0.75rem;
     opacity: 0;
     transition: opacity 0.1s ease-in-out;
     transition: transform 0.1s ease-in;
+    @media screen and (min-width: ${size.sm}) {
+      font-size: 1.25rem;
+    }
+    @media screen and (min-width: ${size.md}) {
+      font-size: 1.75rem;
+    }
   }
 
   &:hover {
     opacity: 80%;
     & > * {
       opacity: 100%;
-      transform: scale(1.75);
+      transform: scaleY(1.1);
     }
   }
 `;
 
-export const StyledCarouselContent = styled.div<{ times: number }>`
+export const StyledCarouselContent = styled.div<{
+  times: number;
+  transitionEnabled?: boolean;
+}>`
   width: 100%;
   display: flex;
 
@@ -106,36 +113,53 @@ export const StyledCarouselContent = styled.div<{ times: number }>`
   }
 
   & > * {
-    width: calc((100vw - 12vw) / 2); //12vw because of the 6vw of each arrow
+    width: calc(
+      (100% - 12%) / ${elementsPerSlideBreakpoint()}
+    ); //12% because of the 6% of each arrow
     flex-shrink: 0;
     flex-grow: 1;
   }
-  transition: transform 0.4s ease-in-out;
+  transition: ${(props) =>
+    props.transitionEnabled ? "transform 0.75s ease-in-out" : "none"};
 
-  ${(props) => `transform: translateX(calc(${props.times}*(-100vw + 12vw)));`}
+  ${(props) =>
+    `transform: translateX(calc(${
+      props.times
+    }*((-100% + 6%)/ ${elementsPerSlideBreakpoint()})));`}
 
   @media screen and (min-width:${size.sm}) {
     & > * {
-      width: calc((100vw - 8vw) / 3);
+      width: calc((100% - 4%) / ${elementsPerSlideBreakpoint(size.sm)});
     }
-    ${(props) => `transform: translateX(calc(${props.times}*(-100vw + 8vw)));`}
+    ${(props) =>
+      `transform: translateX(calc(${
+        props.times
+      }*((-100% + 4%)/ ${elementsPerSlideBreakpoint(size.sm)})));`}
   }
 
   @media screen and (min-width: ${size.md}) {
     & > * {
-      width: calc((100vw - 8vw) / 4);
+      width: calc((100% - 4%) / ${elementsPerSlideBreakpoint(size.md)});
     }
+    ${(props) =>
+      `transform: translateX(calc(${
+        props.times
+      }*((-100% + 4%)/ ${elementsPerSlideBreakpoint(size.md)})));`}
   }
 
   @media screen and (min-width: ${size.lg}) {
     & > * {
-      width: calc((100vw - 8vw) / 5);
+      width: calc((100% - 4%) / ${elementsPerSlideBreakpoint(size.lg)});
     }
+    ${(props) =>
+      `transform: translateX(calc(${
+        props.times
+      }*((-100% + 4%)/ ${elementsPerSlideBreakpoint(size.lg)})));`}
   }
 
   @media screen and (min-width: ${size.xl}) {
     & > * {
-      width: calc((100vw - 8vw) / 5);
+      width: calc((100% - 4%) / ${elementsPerSlideBreakpoint(size.xl)});
     }
   }
 `;
@@ -143,7 +167,7 @@ export const StyledCarouselContent = styled.div<{ times: number }>`
 export const StyledCarouselWrapper = styled.div`
   display: flex;
   position: relative;
-  padding-left: 4vw;
+  padding-left: 4%;
 
   &:hover > ${StyledCarouselArrow} {
     & > * {
@@ -154,14 +178,12 @@ export const StyledCarouselWrapper = styled.div`
 
 export const StyledTitle = styled.h2`
   color: ${Colors.text};
-  font: 1.125rem "NetflixSans Medium";
-  line-height: 1rem;
-  padding-left: 4vw;
+  padding-left: 4%;
   padding-bottom: 0.5rem;
 `;
 
 export const StyledCarousel = styled.div`
-  width: 100vw;
+  width: 100%;
   padding: 1rem 0rem;
   display: flex;
   flex-direction: column;
