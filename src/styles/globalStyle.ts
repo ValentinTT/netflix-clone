@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font: 1.125rem "NetflixSans Medium";
+    line-height: 1rem;
   }
 
   body {
