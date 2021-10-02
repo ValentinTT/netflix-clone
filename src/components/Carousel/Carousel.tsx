@@ -13,6 +13,8 @@ import {
   elementsToShow,
 } from "./Styles";
 
+import useWindowsSize from "utils/useWindowsSize";
+
 type CarouselProps = {
   children: React.ReactChild[];
   title: string;
@@ -25,9 +27,12 @@ type CarouselWrapperPropps = {
 };
 
 const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
+  const { width } = useWindowsSize();
   const [isFirstDisplay, setIsFirstDisplay] = useState(true);
   const [disableButtons, setDisableButtons] = useState(false);
-  const [numElementsToShow, setNumElementsToShow] = useState(elementsToShow(0));
+  const [numElementsToShow, setNumElementsToShow] = useState(
+    elementsToShow(width)
+  );
 
   const sideRepeated = 10;
   const [currentIndex, setCurrentIndex] = useState(0); // slide index
@@ -59,15 +64,21 @@ const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
    */
   const handleTransitionEnd = () => {
     setDisableButtons(false);
+    if (isFirstDisplay) {
+      setIsFirstDisplay((_) => false);
+      setTransitionEnabled(false);
+      setCurrentIndex((prevIndex) => prevIndex + sideRepeated);
+      return;
+    }
     if (isRepeating) {
-      if (currentIndex <= 0) {
-        //llevar al final
+      if (currentIndex < sideRepeated) {
+        //Move to the end (sideRepeated + children.length not length)
         setTransitionEnabled(false);
-        setCurrentIndex(children.length - currentIndex);
-      } else if (currentIndex >= length) {
-        //llevar al principio
+        setCurrentIndex((prevIndex) => prevIndex + sideRepeated);
+      } else if (currentIndex === sideRepeated + children.length) {
+        //Move to the beginning (sideRepeated not 0)
         setTransitionEnabled(false);
-        setCurrentIndex(currentIndex - children.length);
+        setCurrentIndex(sideRepeated);
       }
     }
   };
@@ -77,15 +88,32 @@ const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
     setDisableButtons(true);
 
     if (isFirstDisplay) {
-      setIsFirstDisplay((_) => false);
       setNumElementsToShow((_) => elementsToShow(window.innerWidth));
-      setCurrentIndex(
-        (prevIndex) => prevIndex + elementsToShow(window.innerWidth)
-      );
+      setCurrentIndex((prevIndex) => {
+        let newNumElementsToShow = elementsToShow(window.innerWidth);
+        let newIndex = prevIndex + newNumElementsToShow;
+        if (
+          newIndex < children.length - newNumElementsToShow ||
+          newIndex === children.length
+        ) {
+          return prevIndex + newNumElementsToShow;
+        }
+        return children.length - newNumElementsToShow;
+      });
       return;
     }
 
-    setCurrentIndex((prevIndex) => prevIndex + numElementsToShow);
+    setCurrentIndex((prevIndex) => {
+      let newIndex = prevIndex + numElementsToShow;
+
+      if (
+        newIndex < sideRepeated + children.length - numElementsToShow ||
+        newIndex === sideRepeated + children.length
+      ) {
+        return prevIndex + numElementsToShow;
+      }
+      return sideRepeated + children.length - numElementsToShow;
+    });
   };
 
   const prev = () => {
