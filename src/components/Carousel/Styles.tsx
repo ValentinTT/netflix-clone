@@ -1,7 +1,58 @@
 import styled from "styled-components";
 
 import Colors from "styles/Colors";
-import { size, device } from "styles/Breakpoints";
+import { size, device, sizeInNumber } from "styles/Breakpoints";
+
+/**
+ * elementsPerSlideBreakpoint
+ * An utility that provides the number of elements to be displayed acording to
+ * screen breakpoint.
+ * @param widthBreakpoint String of the current width breakpoint
+ * @returns Number of visible elements in the carousel
+ */
+export const elementsPerSlideBreakpoint = (
+  widthBreakpoint?: string
+): number => {
+  switch (widthBreakpoint) {
+    case size.sm:
+      return 3;
+    case size.md:
+      return 4;
+    case size.lg:
+    case size.xl:
+      return 5;
+    default:
+      return 2;
+  }
+};
+
+/**
+ * Utility function to get the number of elements to be displayed acording to
+ * screen width.
+ * @param width Screen width;
+ * @returns Number of visible elements in the carousel;
+ */
+
+export const elementsToShow = (width: number): number => {
+  if (width >= sizeInNumber.sm && sizeInNumber.md >= width)
+    return elementsPerSlideBreakpoint(size.sm);
+  if (width >= sizeInNumber.md && sizeInNumber.lg >= width)
+    return elementsPerSlideBreakpoint(size.md);
+  if (width >= sizeInNumber.lg && sizeInNumber.xl >= width)
+    return elementsPerSlideBreakpoint(size.lg);
+  if (width >= sizeInNumber.xl) return elementsPerSlideBreakpoint(size.xl);
+  return elementsPerSlideBreakpoint();
+};
+
+export const StyledRightPlaceholder = styled.span`
+  background: ${Colors.gray};
+  height: 100%;
+  width: 6%;
+  ${device.sm`width: 4%;`}
+  position: absolute;
+  left: 0;
+  z-index: 10;
+`;
 
 export const StyledCarouselArrow = styled.span<{ left?: boolean }>`
   background: ${Colors.gray};
