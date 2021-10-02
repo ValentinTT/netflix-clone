@@ -74,7 +74,7 @@ const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
       if (currentIndex < sideRepeated) {
         //Move to the end (sideRepeated + children.length not length)
         setTransitionEnabled(false);
-        setCurrentIndex((prevIndex) => prevIndex + sideRepeated);
+        setCurrentIndex((prevIndex) => prevIndex + children.length);
       } else if (currentIndex === sideRepeated + children.length) {
         //Move to the beginning (sideRepeated not 0)
         setTransitionEnabled(false);
@@ -96,7 +96,7 @@ const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
           newIndex < children.length - newNumElementsToShow ||
           newIndex === children.length
         ) {
-          return prevIndex + newNumElementsToShow;
+          return newIndex;
         }
         return children.length - newNumElementsToShow;
       });
@@ -105,7 +105,6 @@ const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
 
     setCurrentIndex((prevIndex) => {
       let newIndex = prevIndex + numElementsToShow;
-
       if (
         newIndex < sideRepeated + children.length - numElementsToShow ||
         newIndex === sideRepeated + children.length
@@ -115,7 +114,6 @@ const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
       return sideRepeated + children.length - numElementsToShow;
     });
   };
-
   const prev = () => {
     if (disableButtons) return;
     setCurrentIndex((prevIndex) => prevIndex - numElementsToShow);
