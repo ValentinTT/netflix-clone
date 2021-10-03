@@ -166,7 +166,7 @@ const CarouselWrapper = ({ children, infiniteLoop }: CarouselWrapperPropps) => {
   /** Creates the elements that goes to the right of the last element [sideRepeated + children.length, sideRepeated] elements */
   const renderExtraNext = () => {
     let output = [];
-    for (let index = 0; index < sideRepeated + 5; index++) {
+    for (let index = 0; index < sideRepeated; index++) {
       output.push(children[index % children.length]);
     }
     return output;
