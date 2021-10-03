@@ -9,6 +9,7 @@ export const fontsCSS = css`
       url(${NetflixSans}) format("truetype");
     font-weight: 300;
     font-style: normal;
+    font-display: block;
   }
   @font-face {
     font-family: "NetflixSans Medium";
@@ -16,5 +17,6 @@ export const fontsCSS = css`
       url(${NetflixSansMedium}) format("truetype");
     font-weight: 300;
     font-style: normal;
+    font-display: block;
   }
 `;
