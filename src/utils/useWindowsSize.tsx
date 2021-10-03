@@ -14,7 +14,6 @@ export default function useWindowsSize(): WindowDimensions {
 
   const changeWindowSize = () => {
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    console.log(window.innerWidth);
   };
 
   useEffect(() => {
