@@ -168,6 +168,7 @@ export const StyledCarouselWrapper = styled.div`
   display: flex;
   position: relative;
   padding-left: 4%;
+  z-index: 10;
 
   &:hover > ${StyledCarouselArrow} {
     & > * {

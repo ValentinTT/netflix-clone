@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Colors from "styles/Colors";
 
 const StyledCard = styled.div`
-  background: ${Colors.cardBg};
+  background: transparent; //${Colors.cardBg};
   border-radius: 0.3rem;
   cursor: pointer;
   padding: 0 0.125rem;
