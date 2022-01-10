@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
+import { device } from "styles/Breakpoints";
 
 export const VideoContainer = styled.div`
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  height: fit-content;
   margin: 0;
   padding: 0;
   z-index: 1;
@@ -11,7 +11,10 @@ export const VideoContainer = styled.div`
 `;
 
 export const Video = styled.video`
-  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export const fadeIn = keyframes`
@@ -34,13 +37,140 @@ to {
 
 export const ImageBanner = styled.img<{ fadingIn: boolean; duration: string }>`
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
   opacity: ${(props) => (props.fadingIn ? 1 : 0)};
   animation: ${(props) => {
     return props.fadingIn ? fadeIn : fadeOut;
   }};
   animation-duration: ${(props) => props.duration};
   animation-timing-function: ease-in-out;
+`;
+
+export const PlayButton = styled.button`
+  color: #000;
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 0.1rem 0.5rem;
+  ${device.sm`padding: 0.3rem 1.2rem`};
+  ${device.md`padding: 0.3rem 1.2rem`};
+  font-size: 0.3rem;
+  ${device.sm`font-size: 0.5rem`};
+  ${device.md`font-size: 0.9rem`};
+
+  border-radius: 0.2rem;
+  border: 0;
+  transition: background-color 0.2s;
+  &:hover {
+    cursor: pointer;
+    background-color: #ffffffc7;
+  }
+  & > span {
+    font-size: 0.3rem;
+    ${device.sm`font-size: 0.5rem`};
+    ${device.md`font-size: 0.9rem`};
+    line-height: 0.5rem;
+    ${device.sm`line-height: 1rem`};
+    ${device.md`line-height: 1.6rem`};
+    margin-left: 1rem;
+    font-weight: 100;
+  }
+`;
+
+export const MoreInfoButton = styled(PlayButton)`
+  background-color: #a1a1a1c7;
+  color: #fff;
+  &:hover {
+    background-color: #a1a1a1ae;
+  }
+`;
+
+export const BannerInfo = styled.div<{ isPlaying: boolean }>`
+  margin-left: 3rem;
+  width: 50%;
+  ${device.md`width: 40%;`};
+  display: flex;
+  flex-direction: column;
+
+  & > img {
+    background-color: transparent;
+    color: transparent;
+    width: 100%;
+    transform: ${(props) => props.isPlaying && "scale(0.7)"};
+    transform-origin: bottom left;
+    transition: transform 1.5s;
+    transition-delay: 1.5s;
+  }
+  & > p {
+    width: 90%;
+    margin-top: 1rem;
+    font-weight: 100;
+    font-size: 0.3rem;
+    ${device.sm`font-size: 0.5rem`};
+    ${device.md`font-size: 0.9rem`};
+    ${(props) => props.isPlaying && "font-size: 0 !important;"};
+    line-height: 1.4em;
+    opacity: ${(props) => (props.isPlaying ? "0" : "1")};
+    transition: font-size 1.5s, opacity 0.5s;
+    transition-delay: 1.5s;
+  }
+  & > div {
+    margin-top: 1rem;
+    background: transparent;
+    width: fit-content;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    & > * {
+      margin-right: 0.7rem;
+    }
+  }
+`;
+
+export const CircleButton = styled.button`
+  border-radius: 50%;
+  border: 2px solid #e6e6e6e3;
+  padding: 0.4rem;
+  color: #e6e6e6e3;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  &:hover {
+    background-color: #ffffff29;
+  }
+`;
+
+export const BannerRightInfo = styled.div`
+  position: absolute;
+  top: 65%;
+  right: 0;
+  background-color: transparent;
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  & > span {
+    background-color: #32454176;
+    border-left: 0.2rem solid #fff;
+    margin-left: 0.7rem;
+    padding: 0.3rem;
+    height: fit-content;
+    padding-right: 2rem;
+    font-size: 0.7rem;
+    font-weight: 100;
+  }
+`;
+
+export const BannerOverlay = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20%;
+  z-index: 10;
 `;
