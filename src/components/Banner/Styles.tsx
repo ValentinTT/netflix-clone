@@ -148,7 +148,13 @@ export const BannerOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: transparent;
+  background: rgba(255, 255, 255, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(32, 32, 32, 10) 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
   display: flex;
   align-items: flex-end;
   padding-bottom: 15%;
