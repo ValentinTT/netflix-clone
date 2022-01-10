@@ -62,7 +62,7 @@ function App() {
     <Fragment>
       <Body className="App">
         <Banner></Banner>
-        <div style={{ marginTop: "-15%", zIndex: 10 }}>
+        <div style={{ marginTop: "-10%", zIndex: 10 }}>
           <Carousel title="Trending Now" infiniteLoop>
             {[...urls].map((url: string, i: number) => (
               <Card url={url} />

@@ -34,17 +34,17 @@ const Banner = () => {
 
   return (
     <VideoContainer>
-      {isPlaying && (
-        <Video
-          autoPlay
-          muted // don't remove because in some browsers video doesn't autoplay if it is not muted
-          ref={videoElem}
-          crossOrigin="anonymous"
-          onEnded={() => setIsPlaying(false)}
-        >
-          <source src={"/assets/video.mp4"} type="video/mp4" />
-        </Video>
-      )}
+      <Video
+        autoPlay
+        muted // don't remove because in some browsers video doesn't autoplay if it is not muted
+        ref={videoElem}
+        crossOrigin="anonymous"
+        onEnded={() => setIsPlaying(false)}
+        isPlaying={isPlaying}
+      >
+        <source src={"/assets/video.mp4"} type="video/mp4" />
+      </Video>
+
       <ImageBanner
         fadingIn={!isPlaying}
         duration={isFirstDisplay ? "0s" : "1s"}

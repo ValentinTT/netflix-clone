@@ -1,48 +1,28 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { device } from "styles/Breakpoints";
 
 export const VideoContainer = styled.div`
   width: 100%;
-  height: fit-content;
+  max-height: 100vh;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   z-index: 1;
   position: relative;
 `;
 
-export const Video = styled.video`
+export const Video = styled.video<{ isPlaying: boolean }>`
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-`;
-
-export const fadeIn = keyframes`
-from {
-  opacity: 0;
-}
-to {
-  opacity: 1;
-}
-`;
-
-export const fadeOut = keyframes`
-from {
-  opacity: 1;
-}
-to {
-  opacity: 0;
-}
+  opacity: ${(props) => (props.isPlaying ? "1" : "0")};
 `;
 
 export const ImageBanner = styled.img<{ fadingIn: boolean; duration: string }>`
   width: 100%;
   opacity: ${(props) => (props.fadingIn ? 1 : 0)};
-  animation: ${(props) => {
-    return props.fadingIn ? fadeIn : fadeOut;
-  }};
-  animation-duration: ${(props) => props.duration};
-  animation-timing-function: ease-in-out;
+  transition: opacity 1s ease-in-out;
 `;
 
 export const PlayButton = styled.button`
@@ -104,7 +84,7 @@ export const BannerInfo = styled.div<{ isPlaying: boolean }>`
     transition-delay: 1.5s;
   }
   & > p {
-    width: 90%;
+    width: ${(props) => (props.isPlaying ? "0" : "90%")};
     margin-top: 1rem;
     font-weight: 100;
     font-size: 0.3rem;
@@ -113,7 +93,7 @@ export const BannerInfo = styled.div<{ isPlaying: boolean }>`
     ${(props) => props.isPlaying && "font-size: 0 !important;"};
     line-height: 1.4em;
     opacity: ${(props) => (props.isPlaying ? "0" : "1")};
-    transition: font-size 1.5s, opacity 0.5s;
+    transition: font-size 1.5s, width 1.5s, opacity 0.5s;
     transition-delay: 1.5s;
   }
   & > div {
@@ -171,6 +151,6 @@ export const BannerOverlay = styled.div`
   background-color: transparent;
   display: flex;
   align-items: flex-end;
-  padding-bottom: 20%;
+  padding-bottom: 15%;
   z-index: 10;
 `;
