@@ -1,5 +1,5 @@
 const Colors = {
-  gray: "#202020",
+  gray: "#141414",
   cardBg: "#242424",
   text: "#FFFFFF",
 };
