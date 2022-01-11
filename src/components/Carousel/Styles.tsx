@@ -181,6 +181,7 @@ export const StyledTitle = styled.h2`
   color: ${Colors.text};
   padding-left: 4%;
   padding-bottom: 0.5rem;
+  font-size: 1.1rem;
 `;
 
 export const StyledCarousel = styled.div`

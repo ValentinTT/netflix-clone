@@ -50,7 +50,7 @@ export const PlayButton = styled.button`
   & > span {
     font-size: 0.3rem;
     ${device.sm`font-size: 0.5rem`};
-    ${device.md`font-size: 0.9rem`};
+    ${device.md`font-size: 1rem`};
     line-height: 0.5rem;
     ${device.sm`line-height: 1rem`};
     ${device.md`line-height: 1.6rem`};
@@ -86,10 +86,11 @@ export const BannerInfo = styled.div<{ isPlaying: boolean }>`
   & > p {
     width: ${(props) => (props.isPlaying ? "0" : "90%")};
     margin-top: 1rem;
-    font-weight: 100;
+    font-weight: 400;
+    font-family: NetflixSansRegular;
     font-size: 0.3rem;
-    ${device.sm`font-size: 0.5rem`};
-    ${device.md`font-size: 0.9rem`};
+    ${device.sm`font-size: 0.7rem`};
+    ${device.md`font-size: 1rem`};
     ${(props) => props.isPlaying && "font-size: 0 !important;"};
     line-height: 1.4em;
     opacity: ${(props) => (props.isPlaying ? "0" : "1")};
@@ -151,7 +152,7 @@ export const BannerOverlay = styled.div`
   background: rgba(255, 255, 255, 0);
   background: linear-gradient(
     0deg,
-    rgba(32, 32, 32, 10) 0%,
+    rgba(20, 20, 20, 10) 0%,
     rgba(255, 255, 255, 0) 20%,
     rgba(255, 255, 255, 0) 100%
   );

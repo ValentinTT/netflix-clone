@@ -4,12 +4,9 @@ import { fontsCSS } from "fonts/fonts";
 
 const GlobalStyle = createGlobalStyle`
   ${fontsCSS}
-  *{    
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font: 1.125rem "NetflixSans Medium";
-    line-height: 1rem;
+
+  html {
+    font-size: 14;
   }
 
   body {
@@ -19,6 +16,14 @@ const GlobalStyle = createGlobalStyle`
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;          /* Likely future */     
     overflow-x: hidden ;
+  }
+
+  *{    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: 1rem NetflixSansMedium;
+    line-height: 1rem;
   }
 `;
 
