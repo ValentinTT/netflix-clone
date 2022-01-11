@@ -4,6 +4,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Card";
 import Banner from "components/Banner/Banner";
+import { Navbar } from "components/Navbar/Navbar";
 
 const Body = styled.div`
   color: white;
@@ -60,6 +61,7 @@ function App() {
 
   return (
     <Fragment>
+      <Navbar></Navbar>
       <Body className="App">
         <Banner></Banner>
         <div style={{ marginTop: "-10%", zIndex: 10 }}>

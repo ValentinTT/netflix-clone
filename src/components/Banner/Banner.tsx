@@ -89,8 +89,10 @@ const Banner = () => {
             ) : (
               <CircleButton
                 onClick={() => {
-                  setIsPlaying(true);
-                  setIsMuted(true);
+                  setIsPlaying((prevState) => {
+                    setIsMuted(true);
+                    return true;
+                  });
                 }}
               >
                 <FontAwesomeIcon icon={faRedo} />
