@@ -8,7 +8,7 @@ import {
   MoreInfoButton,
   PlayButton,
   Video,
-  VideoContainer,
+  BannerContainer,
 } from "./Styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -33,18 +33,19 @@ const Banner = () => {
   }, []);
 
   return (
-    <VideoContainer>
-      <Video
-        autoPlay
-        muted // don't remove because in some browsers video doesn't autoplay if it is not muted
-        ref={videoElem}
-        crossOrigin="anonymous"
-        onEnded={() => setIsPlaying(false)}
-        isPlaying={isPlaying}
-      >
-        <source src={"/assets/video.mp4"} type="video/mp4" />
-      </Video>
-
+    <BannerContainer>
+      {isPlaying && (
+        <Video
+          autoPlay
+          muted // don't remove because in some browsers video doesn't autoplay if it is not muted
+          ref={videoElem}
+          crossOrigin="anonymous"
+          onEnded={() => setIsPlaying(false)}
+          isPlaying={isPlaying}
+        >
+          <source src={"/assets/video.mp4"} type="video/mp4" />
+        </Video>
+      )}
       <ImageBanner
         fadingIn={!isPlaying}
         duration={isFirstDisplay ? "0s" : "1s"}
@@ -52,24 +53,26 @@ const Banner = () => {
       />
       <BannerOverlay>
         <BannerInfo isPlaying={isPlaying}>
-          <img
-            src="https://res.cloudinary.com/dzlmilfku/image/upload/v1632766841/netflix-clone/banner.webp"
-            alt=""
-          />
-          <p>
-            Insecure Otis has all the answers when it comes to sex advice,
-            thanks to his therapist mom. So rebel Maeve proposes a school
-            sex-therapy clinic.
-          </p>
           <div>
-            <PlayButton>
-              <FontAwesomeIcon icon={faPlay} />
-              <span>Play</span>
-            </PlayButton>
-            <MoreInfoButton>
-              <FontAwesomeIcon icon={faInfoCircle} />
-              <span>More Info</span>
-            </MoreInfoButton>
+            <img
+              src="https://res.cloudinary.com/dzlmilfku/image/upload/v1632766841/netflix-clone/banner.webp"
+              alt=""
+            />
+            <p>
+              Insecure Otis has all the answers when it comes to sex advice,
+              thanks to his therapist mom. So rebel Maeve proposes a school
+              sex-therapy clinic.
+            </p>
+            <div>
+              <PlayButton>
+                <FontAwesomeIcon icon={faPlay} />
+                <span>Play</span>
+              </PlayButton>
+              <MoreInfoButton>
+                <FontAwesomeIcon icon={faInfoCircle} />
+                <span>More Info</span>
+              </MoreInfoButton>
+            </div>
           </div>
         </BannerInfo>
         <BannerRightInfo>
@@ -101,7 +104,7 @@ const Banner = () => {
           <span>16+</span>
         </BannerRightInfo>
       </BannerOverlay>
-    </VideoContainer>
+    </BannerContainer>
   );
 };
 
