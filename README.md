@@ -73,28 +73,28 @@ The page will have the following components:
 - At some point in the following week I finished the carousel and stop working on the project because the last three month of the year were exam period at college.
 
 2022
-1-8:
+1-8 to 1-10:
 
 - I started working on the banner/hero
+
+- Create the banner, with the video, buttons, animations and the navbar (without avatar and the other icons). I don't have a clear idea of when did I did each thing because 1 I've been doing it when I wasn't working and 2 I have covid, and still have fever.
 
 ## TODO:
 
 - [ x ] Slides infinite loop
 
-- [ ] Hero video
+- [ x ] Hero video
 
-- [ ] Hero
+- [ x ] Hero
 
 - [ ] Navbar
 
 - [ ] top10 numbers with svg
 
+- [ ] Footer
+
 - [ ] More info on hover
 
 - [ ] Video on hover
 
-- [ ] Footer
-
 - [ ] Slide title hover
-
-- [ ] Infinite Scroll

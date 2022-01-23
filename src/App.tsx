@@ -9,7 +9,6 @@ import { Navbar } from "components/Navbar/Navbar";
 const Body = styled.div`
   color: white;
   min-height: 100vh;
-  padding-bottom: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -36,42 +35,42 @@ function App() {
     demoUrl(9),
     demoUrl(10),
   ];
-  // let urlsTop: string[] = [
-  //   demoUrl(1, "Top10"),
-  //   demoUrl(2, "Top10"),
-  //   demoUrl(3, "Top10"),
-  //   demoUrl(4, "Top10"),
-  //   demoUrl(5, "Top10"),
-  //   demoUrl(6, "Top10"),
-  //   demoUrl(7, "Top10"),
-  //   demoUrl(8, "Top10"),
-  // ];
-  // let urlsDocu: string[] = [
-  //   demoUrl(11),
-  //   demoUrl(12),
-  //   demoUrl(13),
-  //   demoUrl(14),
-  //   demoUrl(15),
-  //   demoUrl(16),
-  //   demoUrl(17),
-  //   demoUrl(18),
-  //   demoUrl(19),
-  //   demoUrl(20),
-  // ];
+  let urlsTop: string[] = [
+    demoUrl(1, "Top10"),
+    demoUrl(2, "Top10"),
+    demoUrl(3, "Top10"),
+    demoUrl(4, "Top10"),
+    demoUrl(5, "Top10"),
+    demoUrl(6, "Top10"),
+    demoUrl(7, "Top10"),
+    demoUrl(8, "Top10"),
+  ];
+  let urlsDocu: string[] = [
+    demoUrl(11),
+    demoUrl(12),
+    demoUrl(13),
+    demoUrl(14),
+    demoUrl(15),
+    demoUrl(16),
+    demoUrl(17),
+    demoUrl(18),
+    demoUrl(19),
+    demoUrl(20),
+  ];
 
   return (
     <Fragment>
       <Navbar></Navbar>
       <Body className="App">
         <Banner></Banner>
-        <div style={{ marginTop: "-10%", zIndex: 10 }}>
+        <div style={{ marginTop: "-11.4rem", zIndex: 10 }}>
           <Carousel title="Trending Now" infiniteLoop>
             {[...urls].map((url: string, i: number) => (
               <Card url={url} />
             ))}
           </Carousel>
         </div>
-        {/* <Carousel title="Watch It Again" infiniteLoop>
+        <Carousel title="Watch It Again" infiniteLoop>
           {urlsTop.map((url: string, i: number) => (
             <Card url={url} />
           ))}
@@ -80,7 +79,22 @@ function App() {
           {urlsDocu.map((url: string, i: number) => (
             <Card url={url} />
           ))}
-        </Carousel> */}
+        </Carousel>
+        <Carousel title="Trending Now" infiniteLoop>
+          {[...urls].map((url: string, i: number) => (
+            <Card url={url} />
+          ))}
+        </Carousel>
+        <Carousel title="Watch It Again" infiniteLoop>
+          {urlsTop.map((url: string, i: number) => (
+            <Card url={url} />
+          ))}
+        </Carousel>
+        <Carousel title="Documentaries" infiniteLoop>
+          {urlsDocu.map((url: string, i: number) => (
+            <Card url={url} />
+          ))}
+        </Carousel>
       </Body>
       <GlobalStyle />
     </Fragment>
