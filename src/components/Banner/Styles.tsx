@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { device } from "styles/Breakpoints";
 
-export const VideoContainer = styled.div`
+export const BannerContainer = styled.div`
   width: 100%;
-  max-height: 100vh;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -68,44 +67,50 @@ export const MoreInfoButton = styled(PlayButton)`
 `;
 
 export const BannerInfo = styled.div<{ isPlaying: boolean }>`
-  margin-left: 3rem;
-  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 35%;
+  left: 4%;
+  width: 36%;
   ${device.md`width: 40%;`};
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 
-  & > img {
-    background-color: transparent;
-    color: transparent;
-    width: 100%;
-    transform: ${(props) => props.isPlaying && "scale(0.7)"};
-    transform-origin: bottom left;
-    transition: transform 1.5s;
-    transition-delay: 1.5s;
-  }
-  & > p {
-    width: ${(props) => (props.isPlaying ? "0" : "90%")};
-    margin-top: 1rem;
-    font-weight: 400;
-    font-family: NetflixSansRegular;
-    font-size: 0.3rem;
-    ${device.sm`font-size: 0.7rem`};
-    ${device.md`font-size: 1rem`};
-    ${(props) => props.isPlaying && "font-size: 0 !important;"};
-    line-height: 1.4em;
-    opacity: ${(props) => (props.isPlaying ? "0" : "1")};
-    transition: font-size 1.5s, width 1.5s, opacity 0.5s;
-    transition-delay: 1.5s;
-  }
   & > div {
-    margin-top: 1rem;
-    background: transparent;
-    width: fit-content;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    & > * {
-      margin-right: 0.7rem;
+    & > img {
+      background-color: transparent;
+      color: transparent;
+      width: 100%;
+      transform: ${(props) => props.isPlaying && "scale(0.7)"};
+      transform-origin: bottom left;
+      transition: transform 1.5s;
+      transition-delay: 1.5s;
+    }
+    & > p {
+      width: ${(props) => (props.isPlaying ? "0" : "90%")};
+      margin-top: 1rem;
+      font-weight: 400;
+      font-family: NetflixSansRegular;
+      font-size: 0.3rem;
+      ${device.sm`font-size: 0.7rem`};
+      ${device.md`font-size: 1rem`};
+      ${(props) => props.isPlaying && "font-size: 0 !important;"};
+      line-height: 1.4em;
+      opacity: ${(props) => (props.isPlaying ? "0" : "1")};
+      transition: font-size 1.5s, width 1.5s, opacity 0.5s;
+      transition-delay: 1.5s;
+    }
+    & > div {
+      margin-top: 1rem;
+      background: transparent;
+      width: fit-content;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      & > * {
+        margin-right: 0.7rem;
+      }
     }
   }
 `;
@@ -157,7 +162,7 @@ export const BannerOverlay = styled.div`
     rgba(255, 255, 255, 0) 100%
   );
   display: flex;
-  align-items: flex-end;
-  padding-bottom: 15%;
+  align-items: flex-start;
+  padding-top: 70px;
   z-index: 10;
 `;

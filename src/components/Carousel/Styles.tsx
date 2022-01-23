@@ -180,8 +180,8 @@ export const StyledCarouselWrapper = styled.div`
 export const StyledTitle = styled.h2`
   color: ${Colors.text};
   padding-left: 4%;
-  padding-bottom: 0.5rem;
-  font-size: 1.1rem;
+  padding-bottom: 0.9rem;
+  font-size: 1.25rem;
 `;
 
 export const StyledCarousel = styled.div`
