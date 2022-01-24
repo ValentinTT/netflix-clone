@@ -1,6 +1,63 @@
 import styled from "styled-components";
 import { device } from "styles/Breakpoints";
 
+export const DropdownButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  height: 2rem;
+  & > div {
+    width: 0;
+    height: 0;
+    margin-left: 0.7rem;
+    border-style: solid;
+    border-width: 0.3rem 0.3rem 0 0.3rem;
+    border-color: #fff transparent transparent transparent;
+    transition: transform 0.35s;
+  }
+`;
+
+export const NewsDropdownMenuItem = styled.div`
+  padding: 1rem;
+  border: 1px solid #3a3a3a;
+  & > a {
+    width: 400px;
+    display: flex;
+    text-decoration: none;
+    & > div {
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    & > main {
+      padding-left: 1rem;
+      & > h1,
+      & > h2 {
+        font-size: 1rem;
+        font-family: NetflixSansRegular;
+        font-weight: 500;
+        color: #dfdfdf;
+      }
+      & > h2 {
+        padding-top: 0.2rem;
+      }
+      & > p {
+        color: #a5a5a5;
+        padding-top: 0.4rem;
+        font-size: 0.8rem;
+        font-family: NetflixSansRegular;
+        font-weight: 500;
+      }
+    }
+  }
+`;
+
+export const NewsContainer = styled.div`
+  height: 50vh;
+  overflow: auto;
+`;
+
 export const Avatar = styled.img`
   width: 2rem;
   height: 2rem;
@@ -21,22 +78,6 @@ export const AccountMenuText = styled.p`
   }
 `;
 
-export const DropdownButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4rem;
-  & > div {
-    width: 0;
-    height: 0;
-    margin-left: 0.7rem;
-    border-style: solid;
-    border-width: 0.3rem 0.3rem 0 0.3rem;
-    border-color: #fff transparent transparent transparent;
-    transition: transform 0.35s;
-  }
-`;
-
 export const AccountDropdownMenuItem = styled.div`
   margin: 10px 5px;
   display: flex;
@@ -51,6 +92,22 @@ export const AccountDropdownMenuItem = styled.div`
   }
 `;
 
+export const AccountDropdownMenuAvatarsContainer = styled.div`
+  padding: 0.3rem 0.6rem 0.15rem 0.6rem;
+  & > ${AccountMenuText} {
+    margin: 10px 5px;
+  }
+`;
+
+export const AccountDropdownMenuOptionsContainer = styled.div`
+  padding: 0.15rem 0.6rem 0.3rem 0.6rem;
+  border-top: 1px solid #3a3a3a;
+  & > ${AccountMenuText} {
+    font-family: NetflixSansMedium;
+    margin: 10px 5px;
+  }
+`;
+
 export const DropdownMenu = styled.div`
   visibility: hidden;
   position: absolute;
@@ -58,20 +115,6 @@ export const DropdownMenu = styled.div`
   top: 160%;
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px solid #3a3a3a;
-  & > div:first-child {
-    padding: 0.3rem 0.6rem 0.15rem 0.6rem;
-    & > ${AccountMenuText} {
-      margin: 10px 5px;
-    }
-  }
-  & > div:last-child {
-    padding: 0.15rem 0.6rem 0.3rem 0.6rem;
-    border-top: 1px solid #3a3a3a;
-    & > ${AccountMenuText} {
-      font-family: NetflixSansMedium;
-      margin: 10px 5px;
-    }
-  }
 `;
 
 export const DropdownHelper = styled.div`
@@ -87,9 +130,9 @@ export const DropdownHelper = styled.div`
     // Arrow
     width: 0;
     height: 0;
-    margin-left: 0.3rem;
+    margin-left: 0.4rem;
     border-style: solid;
-    border-width: 0 0.3rem 0.3rem 0.3rem;
+    border-width: 0 0.4rem 0.4rem 0.4rem;
     border-color: transparent transparent #fff transparent;
   }
 `;

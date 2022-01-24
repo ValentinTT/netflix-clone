@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBell } from "@fortawesome/free-solid-svg-icons";
 import {
+  AccountDropdownMenuAvatarsContainer,
   AccountDropdownMenuItem,
+  AccountDropdownMenuOptionsContainer,
   AccountMenuText,
   Avatar,
   DropdownButton,
@@ -13,6 +15,8 @@ import {
   NavbarImage,
   NavContainer,
   NetflixLogo,
+  NewsContainer,
+  NewsDropdownMenuItem,
   PrimaryNavigation,
   SecondaryNavigation,
   SecondaryNavItem,
@@ -74,7 +78,100 @@ export const Navbar = () => {
               <DropdownHelper>
                 <div></div>
               </DropdownHelper>
-              <DropdownMenu></DropdownMenu>
+              <DropdownMenu>
+                <NewsContainer>
+                  <NewsDropdownMenuItem>
+                    <a href="#">
+                      <div>
+                        <img
+                          src="https://res.cloudinary.com/dzlmilfku/image/upload/v1642989852/netflix-clone/news00.png"
+                          alt=""
+                        />
+                      </div>
+                      <main>
+                        <h1>Netflix Lookahead</h1>
+                        <h2>Explore what's coming soon.</h2>
+                        <p>1 day ago</p>
+                      </main>
+                    </a>
+                  </NewsDropdownMenuItem>
+                  <NewsDropdownMenuItem>
+                    <a href="#">
+                      <div>
+                        <img
+                          src="https://res.cloudinary.com/dzlmilfku/image/upload/v1642980941/netflix-clone/news01.png"
+                          alt=""
+                        />
+                      </div>
+                      <main>
+                        <h1>New Arrival</h1>
+                        <h2>The Hangover Part III</h2>
+                        <p>3 days ago</p>
+                      </main>
+                    </a>
+                  </NewsDropdownMenuItem>
+                  <NewsDropdownMenuItem>
+                    <a href="#">
+                      <div>
+                        <img
+                          src="https://res.cloudinary.com/dzlmilfku/image/upload/v1642980941/netflix-clone/news02.png"
+                          alt=""
+                        />
+                      </div>
+                      <main>
+                        <h1>New Arrival</h1>
+                        <h2>More The Merrier</h2>
+                        <p>5 days ago</p>
+                      </main>
+                    </a>
+                  </NewsDropdownMenuItem>
+                  <NewsDropdownMenuItem>
+                    <a href="#">
+                      <div>
+                        <img
+                          src="https://res.cloudinary.com/dzlmilfku/image/upload/v1642980941/netflix-clone/news03.png"
+                          alt=""
+                        />
+                      </div>
+                      <main>
+                        <h1>Netflix Original</h1>
+                        <h2>The Unforgivable</h2>
+                        <p>6 days ago</p>
+                      </main>
+                    </a>
+                  </NewsDropdownMenuItem>
+                  <NewsDropdownMenuItem>
+                    <a href="#">
+                      <div>
+                        <img
+                          src="https://res.cloudinary.com/dzlmilfku/image/upload/v1642980941/netflix-clone/news04.png"
+                          alt=""
+                        />
+                      </div>
+                      <main>
+                        <h1>Netflix Original</h1>
+                        <h2>Money Heist</h2>
+                        <p>1 week ago</p>
+                      </main>
+                    </a>
+                  </NewsDropdownMenuItem>
+                  <NewsDropdownMenuItem>
+                    <a href="#">
+                      <div>
+                        <img
+                          src="https://res.cloudinary.com/dzlmilfku/image/upload/v1642989852/netflix-clone/news05.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <main>
+                        <h1>New Arrival</h1>
+                        <h2>The Royal Treatment</h2>
+                        <p>1 week ago</p>
+                      </main>
+                    </a>
+                  </NewsDropdownMenuItem>
+                </NewsContainer>
+              </DropdownMenu>
             </DropdownWrapper>
           </SecondaryNavItem>
 
@@ -88,7 +185,7 @@ export const Navbar = () => {
                 <div></div>
               </DropdownHelper>
               <DropdownMenu>
-                <div>
+                <AccountDropdownMenuAvatarsContainer>
                   <AccountDropdownMenuItem>
                     <Avatar src="/assets/avatars/avatar01.png" alt=""></Avatar>
                     <AccountMenuText>Sonia La One</AccountMenuText>
@@ -107,12 +204,12 @@ export const Navbar = () => {
                   </AccountDropdownMenuItem>
 
                   <AccountMenuText>Manage Profiles</AccountMenuText>
-                </div>
-                <div>
+                </AccountDropdownMenuAvatarsContainer>
+                <AccountDropdownMenuOptionsContainer>
                   <AccountMenuText>Account</AccountMenuText>
                   <AccountMenuText>Help Center</AccountMenuText>
                   <AccountMenuText>Sign out of Netflix</AccountMenuText>
-                </div>
+                </AccountDropdownMenuOptionsContainer>
               </DropdownMenu>
             </DropdownWrapper>
           </SecondaryNavItem>
