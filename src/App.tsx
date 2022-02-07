@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import styled from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import Carousel from "components/Carousel/Carousel";
-import Card from "components/Card";
+import Card from "components/Cards/Card";
+import TopCard from "components/Cards/TopCard";
 import Banner from "components/Banner/Banner";
 import { Navbar } from "components/Navbar/Navbar";
 
@@ -45,6 +46,7 @@ function App() {
     demoUrl(7, "Top10"),
     demoUrl(8, "Top10"),
   ];
+
   let urlsDocu: string[] = [
     demoUrl(11),
     demoUrl(12),
