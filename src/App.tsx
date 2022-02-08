@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
-import GlobalStyle from "./styles/GlobalStyle";
+import GlobalStyle from "styles/GlobalStyle";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Cards/Card";
 import Banner from "components/Banner/Banner";
