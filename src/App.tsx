@@ -3,7 +3,6 @@ import styled from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Cards/Card";
-import TopCard from "components/Cards/TopCard";
 import Banner from "components/Banner/Banner";
 import { Navbar } from "components/Navbar/Navbar";
 
